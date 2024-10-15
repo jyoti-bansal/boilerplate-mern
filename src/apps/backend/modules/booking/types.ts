@@ -1,9 +1,9 @@
 export class ToolCallFunctionArguments {
+  address: string;
+  availability: string;
   firstName: string;
   lastName: string;
   phoneNumber: string;
-  address: string;
-  availability: string;
 }
 
 export class ToolCall {
@@ -20,17 +20,9 @@ export class BookingCustomRequestBody {
   };
 }
 
-export class Address {
-  street: string;
-  city: string;
-  state: string;
-  country: string;
-  zip: string;
-}
-
 export class Booking {
-  firstName: string;
-  phoneNumber: string;
   address: string;
   availability: string;
+  firstName: string;
+  phoneNumber: string;
 }

@@ -7,6 +7,7 @@ export default class AvailabilityRouter extends ApplicationRouter {
     const { router } = this;
     const ctrl = new AvailabilityController();
 
+    // Vapi's server URL functionality is designed to use POST requests for communication between Vapi and server.
     router.post('/', ctrl.getAvailability);
   }
 }

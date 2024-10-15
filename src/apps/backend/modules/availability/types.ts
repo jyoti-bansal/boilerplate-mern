@@ -1,6 +1,6 @@
 export class ToolCallFunctionArguments {
-  startDate: string;
   showForDays: string;
+  startDate: string;
 }
 
 export class ToolCall {
