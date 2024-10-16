@@ -1,11 +1,6 @@
-export class PhoneNumber {
+export interface PhoneNumber {
   countryCode: string;
   phoneNumber: string;
-
-  constructor(countryCode: string, phoneNumber: string) {
-    this.countryCode = countryCode;
-    this.phoneNumber = phoneNumber;
-  }
 }
 
 export interface CreateBookingRequestParams {
@@ -16,7 +11,7 @@ export interface CreateBookingRequestParams {
   schedule: ScheduleTime;
 }
 
-export class Address {
+export interface Address {
   city: string;
   country: string;
   state: string;
@@ -24,7 +19,7 @@ export class Address {
   zip: string;
 }
 
-export class ScheduleTime {
+export interface ScheduleTime {
   endTime: string;
   startTime: string;
 }
@@ -32,4 +27,14 @@ export class ScheduleTime {
 export interface Booking {
   bookingNumber: string;
   schedule: ScheduleTime;
+}
+
+export interface AvailableBookingSlot {
+  endTime: Date;
+  startTime: Date;
+}
+
+export interface AvailableBookingSlotParams {
+  showForDays?: number;
+  startDate?: Date;
 }

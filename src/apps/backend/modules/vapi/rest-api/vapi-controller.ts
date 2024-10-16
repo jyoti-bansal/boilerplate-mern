@@ -1,5 +1,4 @@
 import { applicationController, Request, Response } from '../../application';
-import BookingAvailabilityService from '../../booking-availability/booking-availability-service';
 import BookingService from '../../booking/booking-service';
 import { HttpStatusCodes } from '../../http';
 import {
@@ -40,11 +39,10 @@ export class VapiController {
       const requestPayload = req.body.message.toolCalls[0];
       const { startDate, showForDays } = requestPayload.function.arguments;
 
-      const availability =
-        await BookingAvailabilityService.getAvailableBookingSlots({
-          startDate,
-          showForDays,
-        });
+      const availability = await BookingService.getAvailableBookingSlots({
+        startDate,
+        showForDays,
+      });
 
       res.status(HttpStatusCodes.OK).send({
         results: [

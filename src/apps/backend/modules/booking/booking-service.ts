@@ -1,6 +1,12 @@
 import crypto from 'crypto';
 
-import { Booking, CreateBookingRequestParams } from './types';
+import { mockBookingAvailabilityData } from './internal/booking-availability-mockdata';
+import {
+  AvailableBookingSlot,
+  AvailableBookingSlotParams,
+  Booking,
+  CreateBookingRequestParams,
+} from './types';
 
 export default class BookingService {
   static async createBooking({
@@ -24,5 +30,12 @@ export default class BookingService {
     };
 
     return Promise.resolve(bookingDetails);
+  }
+
+  static async getAvailableBookingSlots(
+    params: AvailableBookingSlotParams,
+  ): Promise<AvailableBookingSlot[]> {
+    const days = params.showForDays || 7;
+    return Promise.resolve(mockBookingAvailabilityData(days, params.startDate));
   }
 }
