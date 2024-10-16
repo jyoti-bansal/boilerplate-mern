@@ -7,7 +7,7 @@ import expressWinston from 'express-winston';
 
 import { AccessTokenServer } from './modules/access-token';
 import { AccountServer } from './modules/account';
-import AvailabilityServer from './modules/availability/rest-api/availability-server';
+import BookingAvailabilityServer from './modules/availability/rest-api/booking-availability-server';
 import BookingServer from './modules/booking/rest-api/booking-server';
 import { ConfigService } from './modules/config';
 import { Logger, CustomLoggerTransport } from './modules/logger';
@@ -62,7 +62,7 @@ export default class App {
       new AccountServer(),
       new AccessTokenServer(),
       new PasswordResetTokenServer(),
-      new AvailabilityServer(),
+      new BookingAvailabilityServer(),
       new BookingServer(),
     ].forEach((server) => {
       app.use('/', server.server);

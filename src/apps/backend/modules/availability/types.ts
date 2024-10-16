@@ -1,4 +1,4 @@
-interface GetAvailabilityRequestParams {
+interface GetBookingAvailabilityRequestParams {
   showForDays: number;
   startDate: Date;
 }
@@ -6,27 +6,23 @@ interface GetAvailabilityRequestParams {
 interface ToolCall {
   id: string;
   function: {
-    arguments: GetAvailabilityRequestParams;
+    arguments: GetBookingAvailabilityRequestParams;
     name: string;
   };
 }
 
-export interface AvailabilityCustomRequestBody {
+export interface BookingAvailabilityCustomRequestBody {
   message: {
     toolCalls: ToolCall[];
   };
 }
 
-export interface TimeSlot {
+export interface AvailableBookingSlot {
   start_time: string;
   end_time: string;
 }
 
-export interface Availability {
-  booking_windows: TimeSlot[];
-}
-
-export interface AvailabilityParams {
+export interface AvailableBookingSlotParams {
   startDate?: Date;
   showForDays?: number;
 }

@@ -1,12 +1,12 @@
 import { DateUtils } from '../util/date-utils';
 
-import { Availability, TimeSlot } from './types';
+import { AvailableBookingSlot } from './types';
 
-export const mockAvailabilityData = (
+export const mockBookingAvailabilityData = (
   startDate: Date,
   showForDays: number,
-): Availability => {
-  const bookingWindows: TimeSlot[] = [];
+): AvailableBookingSlot[] => {
+  const bookingWindows: AvailableBookingSlot[] = [];
 
   for (let i = 0; i < showForDays; i += 1) {
     const date = DateUtils.addDays(startDate, i);
@@ -30,7 +30,5 @@ export const mockAvailabilityData = (
     bookingWindows.push(...timeSlots);
   }
 
-  return {
-    booking_windows: bookingWindows,
-  };
+  return bookingWindows;
 };
