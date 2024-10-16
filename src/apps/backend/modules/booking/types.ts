@@ -30,5 +30,6 @@ export class ScheduleTime {
 }
 
 export interface Booking {
+  bookingNumber: string;
   schedule: ScheduleTime;
 }

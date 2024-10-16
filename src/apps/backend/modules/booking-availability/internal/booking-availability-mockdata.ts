@@ -1,10 +1,9 @@
-import { DateUtils } from '../util/date-utils';
-
-import { AvailableBookingSlot } from './types';
+import { DateUtils } from '../../util/date-utils';
+import { AvailableBookingSlot } from '../types';
 
 export const mockBookingAvailabilityData = (
-  startDate: Date,
   showForDays: number,
+  startDate: Date,
 ): AvailableBookingSlot[] => {
   const bookingWindows: AvailableBookingSlot[] = [];
 

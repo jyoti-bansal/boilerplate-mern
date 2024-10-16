@@ -1,4 +1,4 @@
-import { mockBookingAvailabilityData } from './booking-availability-mockdata';
+import { mockBookingAvailabilityData } from './internal/booking-availability-mockdata';
 import { AvailableBookingSlot, AvailableBookingSlotParams } from './types';
 
 export default class BookingAvailabilityService {
@@ -6,6 +6,6 @@ export default class BookingAvailabilityService {
     params: AvailableBookingSlotParams,
   ): Promise<AvailableBookingSlot[]> {
     const days = params.showForDays || 7;
-    return Promise.resolve(mockBookingAvailabilityData(params.startDate, days));
+    return Promise.resolve(mockBookingAvailabilityData(days, params.startDate));
   }
 }

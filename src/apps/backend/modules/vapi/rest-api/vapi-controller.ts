@@ -5,7 +5,7 @@ import { HttpStatusCodes } from '../../http';
 import {
   BookingAvailabilityCustomRequestBody,
   VapiBookingCustomRequestBody,
-} from '../type';
+} from '../types';
 
 export class VapiController {
   createBooking = applicationController(
@@ -24,8 +24,8 @@ export class VapiController {
       res.status(HttpStatusCodes.CREATED).send({
         results: [
           {
-            toolCallId: req.body.message.toolCalls[0].id,
             result: `Your booking has been confirmed for the time slot from ${booking.schedule.startTime} to ${booking.schedule.endTime}`,
+            toolCallId: req.body.message.toolCalls[0].id,
           },
         ],
       });
@@ -49,8 +49,8 @@ export class VapiController {
       res.status(HttpStatusCodes.OK).send({
         results: [
           {
-            toolCallId: requestPayload.id,
             result: availability,
+            toolCallId: requestPayload.id,
           },
         ],
       });

@@ -10,7 +10,7 @@ import { AccountServer } from './modules/account';
 import { ConfigService } from './modules/config';
 import { Logger, CustomLoggerTransport } from './modules/logger';
 import { PasswordResetTokenServer } from './modules/password-reset-token';
-import VapiServer from './modules/vapi/rest-api/vapi-server';
+import { VapiServer } from './modules/vapi';
 
 const isDevEnv = process.env.NODE_ENV === 'development';
 
