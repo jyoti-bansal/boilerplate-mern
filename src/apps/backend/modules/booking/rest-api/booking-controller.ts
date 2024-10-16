@@ -6,15 +6,15 @@ import { BookingCustomRequestBody } from '../types';
 export class BookingController {
   createBooking = applicationController(
     async (req: Request<BookingCustomRequestBody>, res: Response) => {
-      const toolCall = req.body.message.toolCalls[0];
-      const { firstName, phoneNumber, address, availability } =
-        toolCall.function.arguments;
+      const requestPayload = req.body.message.toolCalls[0];
+      const { firstName, phoneNumber, address, schedule } =
+        requestPayload.function.arguments;
 
       const booking = await BookingService.createBooking({
         firstName,
         phoneNumber,
         address,
-        availability,
+        schedule,
       });
 
       res.status(HttpStatusCodes.CREATED).send({

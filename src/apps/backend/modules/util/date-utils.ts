@@ -1,15 +1,18 @@
-import moment, { Moment } from 'moment';
+import moment from 'moment';
 
 export class DateUtils {
-  static parseDate(dateString?: string): Moment {
-    return dateString ? moment(dateString, 'YYYY-MM-DD') : moment();
+  static parseDate(dateInput: string | Date): Date {
+    if (typeof dateInput === 'string') {
+      return moment(dateInput, 'YYYY-MM-DD hh:mm A').toDate();
+    }
+    return moment(dateInput).toDate();
   }
 
-  static addDays(date: Moment, days: number): Moment {
-    return date.clone().add(days, 'days');
+  static addDays(date: Date, days: number): Date {
+    return moment(date).add(days, 'days').toDate();
   }
 
-  static formatDate(date: Moment): string {
-    return date.format('YYYY-MM-DD');
+  static formatDate(date: Date): string {
+    return moment(date).format('YYYY-MM-DD');
   }
 }

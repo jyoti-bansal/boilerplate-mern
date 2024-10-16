@@ -1,28 +1,51 @@
-export class ToolCallFunctionArguments {
-  address: string;
-  availability: string;
+export class PhoneNumber {
+  countryCode: string;
+  phoneNumber: string;
+
+  constructor(countryCode: string, phoneNumber: string) {
+    this.countryCode = countryCode;
+    this.phoneNumber = phoneNumber;
+  }
+}
+interface CreateBookingRequestParams {
+  address: Address;
+  schedule: ScheduleTime;
   firstName: string;
   lastName: string;
-  phoneNumber: string;
+  phoneNumber: PhoneNumber;
 }
 
-export class ToolCall {
+interface ToolCall {
   id: string;
   function: {
-    arguments: ToolCallFunctionArguments;
+    arguments: CreateBookingRequestParams;
     name: string;
   };
 }
 
-export class BookingCustomRequestBody {
+export interface BookingCustomRequestBody {
   message: {
     toolCalls: ToolCall[];
   };
 }
 
+export class Address {
+  city: string;
+  country: string;
+  state: string;
+  street: string;
+  zip: string;
+}
+
+export class ScheduleTime {
+  endTime: string;
+  startTime: string;
+}
+
 export class Booking {
-  address: string;
-  availability: string;
+  address: Address;
   firstName: string;
-  phoneNumber: string;
+  lastName?: string;
+  phoneNumber: PhoneNumber;
+  schedule: ScheduleTime;
 }

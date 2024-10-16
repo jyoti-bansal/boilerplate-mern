@@ -5,16 +5,15 @@ export default class BookingService {
     firstName,
     phoneNumber,
     address,
-    availability,
+    schedule,
   }: Booking) {
-    if (!firstName || !phoneNumber || !address || !availability) {
+    if (!firstName || !phoneNumber || !address) {
       throw new Error('Customer details are required');
     }
 
     // Mock booking logic, which can later be replaced with actual logic
     const bookingDetails = {
-      confirmationMessage: `Your booking has been confirmed for the time slot {availability}`,
-      availability,
+      confirmationMessage: `Your booking has been confirmed for the time slot from ${schedule.startTime} to ${schedule.endTime}`,
     };
 
     return Promise.resolve(bookingDetails);

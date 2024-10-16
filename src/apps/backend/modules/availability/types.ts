@@ -1,18 +1,32 @@
-export class ToolCallFunctionArguments {
-  showForDays: string;
-  startDate: string;
+interface GetAvailabilityRequestParams {
+  showForDays: number;
+  startDate: Date;
 }
 
-export class ToolCall {
+interface ToolCall {
   id: string;
   function: {
-    arguments: ToolCallFunctionArguments;
+    arguments: GetAvailabilityRequestParams;
     name: string;
   };
 }
 
-export class AvailabilityCustomRequestBody {
+export interface AvailabilityCustomRequestBody {
   message: {
     toolCalls: ToolCall[];
   };
+}
+
+export interface TimeSlot {
+  start_time: string;
+  end_time: string;
+}
+
+export interface Availability {
+  booking_windows: TimeSlot[];
+}
+
+export interface AvailabilityParams {
+  startDate?: Date;
+  showForDays?: number;
 }
