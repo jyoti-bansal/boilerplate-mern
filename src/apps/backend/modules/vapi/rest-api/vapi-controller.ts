@@ -1,13 +1,15 @@
 import { applicationController, Request, Response } from '../../application';
-import { BookingAvailabilityCustomRequestBody } from '../../booking-availability';
 import BookingAvailabilityService from '../../booking-availability/booking-availability-service';
 import BookingService from '../../booking/booking-service';
-import { BookingCustomRequestBody } from '../../booking/types';
 import { HttpStatusCodes } from '../../http';
+import {
+  BookingAvailabilityCustomRequestBody,
+  VapiBookingCustomRequestBody,
+} from '../type';
 
 export class VapiController {
   createBooking = applicationController(
-    async (req: Request<BookingCustomRequestBody>, res: Response) => {
+    async (req: Request<VapiBookingCustomRequestBody>, res: Response) => {
       const requestPayload = req.body.message.toolCalls[0];
       const { firstName, phoneNumber, address, schedule } =
         requestPayload.function.arguments;
@@ -23,7 +25,7 @@ export class VapiController {
         results: [
           {
             toolCallId: req.body.message.toolCalls[0].id,
-            result: booking.confirmationMessage,
+            result: `Your booking has been confirmed for the time slot from ${booking.schedule.startTime} to ${booking.schedule.endTime}`,
           },
         ],
       });

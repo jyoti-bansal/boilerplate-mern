@@ -8,7 +8,7 @@ export default class VapiRouter extends ApplicationRouter {
     const ctrl = new VapiController();
 
     // Vapi's server URL functionality is designed to use POST requests for communication between Vapi and server.
-    router.post('/booking-availabe-slots', ctrl.getAvailableBookingSlots);
+    router.post('/booking-available-slots', ctrl.getAvailableBookingSlots);
 
     router.post('/bookings', ctrl.createBooking);
   }

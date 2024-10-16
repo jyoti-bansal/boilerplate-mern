@@ -1,5 +1,3 @@
-import { ToolCall } from '../common-types/common';
-
 export class PhoneNumber {
   countryCode: string;
   phoneNumber: string;
@@ -18,12 +16,6 @@ export interface CreateBookingRequestParams {
   schedule: ScheduleTime;
 }
 
-export interface BookingCustomRequestBody {
-  message: {
-    toolCalls: ToolCall<CreateBookingRequestParams>[];
-  };
-}
-
 export class Address {
   city: string;
   country: string;
@@ -35,4 +27,8 @@ export class Address {
 export class ScheduleTime {
   endTime: string;
   startTime: string;
+}
+
+export interface Booking {
+  schedule: ScheduleTime;
 }

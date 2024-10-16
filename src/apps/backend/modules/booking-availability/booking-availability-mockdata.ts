@@ -14,16 +14,16 @@ export const mockBookingAvailabilityData = (
 
     const timeSlots = [
       {
-        start_time: DateUtils.parseDate(`${dateString} 09:00 AM`).toISOString(),
-        end_time: DateUtils.parseDate(`${dateString} 10:00 AM`).toISOString(),
+        startTime: DateUtils.parseDate(`${dateString} 09:00 AM`),
+        endTime: DateUtils.parseDate(`${dateString} 10:00 AM`),
       },
       {
-        start_time: DateUtils.parseDate(`${dateString} 11:00 AM`).toISOString(),
-        end_time: DateUtils.parseDate(`${dateString} 12:00 PM`).toISOString(),
+        startTime: DateUtils.parseDate(`${dateString} 11:00 AM`),
+        endTime: DateUtils.parseDate(`${dateString} 12:00 PM`),
       },
       {
-        start_time: DateUtils.parseDate(`${dateString} 02:00 PM`).toISOString(),
-        end_time: DateUtils.parseDate(`${dateString} 03:00 PM`).toISOString(),
+        startTime: DateUtils.parseDate(`${dateString} 02:00 PM`),
+        endTime: DateUtils.parseDate(`${dateString} 03:00 PM`),
       },
     ];
 
