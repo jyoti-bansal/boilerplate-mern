@@ -1,3 +1,5 @@
+import { ToolCall } from '../common-types/common';
+
 export class PhoneNumber {
   countryCode: string;
   phoneNumber: string;
@@ -7,25 +9,18 @@ export class PhoneNumber {
     this.phoneNumber = phoneNumber;
   }
 }
-interface CreateBookingRequestParams {
-  address: Address;
-  schedule: ScheduleTime;
-  firstName: string;
-  lastName: string;
-  phoneNumber: PhoneNumber;
-}
 
-interface ToolCall {
-  id: string;
-  function: {
-    arguments: CreateBookingRequestParams;
-    name: string;
-  };
+export interface CreateBookingRequestParams {
+  address: Address;
+  firstName: string;
+  lastName?: string;
+  phoneNumber: PhoneNumber;
+  schedule: ScheduleTime;
 }
 
 export interface BookingCustomRequestBody {
   message: {
-    toolCalls: ToolCall[];
+    toolCalls: ToolCall<CreateBookingRequestParams>[];
   };
 }
 
@@ -40,12 +35,4 @@ export class Address {
 export class ScheduleTime {
   endTime: string;
   startTime: string;
-}
-
-export class Booking {
-  address: Address;
-  firstName: string;
-  lastName?: string;
-  phoneNumber: PhoneNumber;
-  schedule: ScheduleTime;
 }

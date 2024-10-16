@@ -1,28 +1,17 @@
-interface GetBookingAvailabilityRequestParams {
-  showForDays: number;
-  startDate: Date;
-}
+import { ToolCall } from '../common-types/common';
 
-interface ToolCall {
-  id: string;
-  function: {
-    arguments: GetBookingAvailabilityRequestParams;
-    name: string;
-  };
+export interface AvailableBookingSlotParams {
+  showForDays?: number;
+  startDate?: Date;
 }
 
 export interface BookingAvailabilityCustomRequestBody {
   message: {
-    toolCalls: ToolCall[];
+    toolCalls: ToolCall<AvailableBookingSlotParams>[];
   };
 }
 
 export interface AvailableBookingSlot {
-  start_time: string;
   end_time: string;
-}
-
-export interface AvailableBookingSlotParams {
-  startDate?: Date;
-  showForDays?: number;
+  start_time: string;
 }

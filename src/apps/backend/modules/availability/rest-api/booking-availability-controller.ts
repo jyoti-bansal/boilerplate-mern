@@ -1,6 +1,5 @@
 import { applicationController, Request, Response } from '../../application';
 import { HttpStatusCodes } from '../../http';
-import { DateUtils } from '../../util/date-utils';
 import BookingAvailabilityService from '../booking-availability-service';
 import { BookingAvailabilityCustomRequestBody } from '../types';
 
@@ -13,11 +12,9 @@ export class BookingAvailabilityController {
       const requestPayload = req.body.message.toolCalls[0];
       const { startDate, showForDays } = requestPayload.function.arguments;
 
-      const parsedStartDate = DateUtils.parseDate(startDate);
-
       const availability =
         await BookingAvailabilityService.getAvailableBookingSlots({
-          startDate: parsedStartDate,
+          startDate,
           showForDays,
         });
 

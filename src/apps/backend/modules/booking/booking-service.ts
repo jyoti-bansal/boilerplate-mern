@@ -1,4 +1,4 @@
-import { Booking } from './types';
+import { CreateBookingRequestParams } from './types';
 
 export default class BookingService {
   static async createBooking({
@@ -6,7 +6,7 @@ export default class BookingService {
     phoneNumber,
     address,
     schedule,
-  }: Booking) {
+  }: CreateBookingRequestParams) {
     if (!firstName || !phoneNumber || !address) {
       throw new Error('Customer details are required');
     }

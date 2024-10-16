@@ -1,11 +1,8 @@
 import moment from 'moment';
 
 export class DateUtils {
-  static parseDate(dateInput: string | Date): Date {
-    if (typeof dateInput === 'string') {
-      return moment(dateInput, 'YYYY-MM-DD hh:mm A').toDate();
-    }
-    return moment(dateInput).toDate();
+  static parseDate(dateInput: string): Date {
+    return moment(dateInput, 'YYYY-MM-DD hh:mm A').toDate();
   }
 
   static addDays(date: Date, days: number): Date {
